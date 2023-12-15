@@ -4,6 +4,27 @@
 <meta charset='UTF8'>
 <link rel="stylesheet" type="text/css" href="css/styles.css">
 <title>Contact</title>
+
+<script>
+    function validateForm() {
+        var nom = document.getElementById("nom").value;
+        var prenom = document.getElementById("prenom").value;
+        var mail = document.getElementById("email").value;
+        var message = document.getElementById("message").value;
+
+        
+        if (nom === "" || prenom === "" || mail === "" || message === "") {
+            alert("Veuillez remplir tous les champs du formulaire avec des données valides.");
+            return false;
+        }
+		if (mail.indexOf("@") < 0 || mail.indexOf(".") < 0 || mail.indexOf("@") > mail.lastIndexOf(".")) {
+            alert("Mail invalide");
+            return false;
+        
+    }
+	}
+</script>
+  
 </head>
 <body>
 <header>
@@ -30,31 +51,41 @@
 	<img src = "images/facebook.png" width="100" height="100"></a></th>
             </tr>
             <tr>
-                <td align="center"><p>Vous pouvez me contacter sur Linked </p></td>
+                <td align="center"><p>Vous pouvez me contacter sur linkedin </p></td>
 				<td align="center"><p>Vous pouvez me contacter sur Facebook</p></td>
             </tr>
 </table>
 	<h2> contactez nous sur  Email </h2> 	
-<form method="POST" action=""></form>
-            <table border="0">
-			<tr>
-                    <td><label> votre Nom </label></td><td><input type="text" pattern="[A-Za-z]" min="3" required><br></td>
-                </tr>
-		
-		    <tr>
-                    <td><label> votre prenom </label></td><td><input type="text" pattern="[A-Za-z]" min="3"><br></td>
-                </tr>
-		    <tr>
-                    <td><label> votre Email </label></td><td><input type="email"><br></td>
-                </tr>
-		    <tr>
-                    <td><label> votre message </label></td><td> <textarea> </textarea>
-                </tr>
-				<td></td><td><input type="submit" value="envoyer"></td>
-				
-				 
-		
-		</form>
+<form name="contactForm" method="POST" action="" onsubmit="return validateForm()">
+    <table border="0">
+      <tr>
+        <td><label> Votre Nom </label></td>
+        <td><input type="text" id="nom" ><br></td>
+      </tr>
+
+      <tr>
+        <td><label> Votre Prénom </label></td>
+        <td><input type="text" id="prenom" <br></td>
+      </tr>
+
+      <tr>
+        <td><label> Votre Email </label></td>
+        <td><input type="email" id="email" ><br></td>
+      </tr>
+
+      <tr>
+        <td><label> Votre Message </label></td>
+        <td> <textarea id="message"></textarea></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td><input type="submit" value="Envoyer"></td>
+      </tr>
+    </table>
+  </form>
+
+
  
 </section>
 
